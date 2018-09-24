@@ -1,3 +1,4 @@
+//Author: Tony Okoth
 //This code demonstates the use of node js with mysql database.
 const express = require('express');
 const mysql = require('mysql');
@@ -5,7 +6,7 @@ const mysql = require('mysql');
 const app = express();
 
 //create Database
-app.get('/createdb', (req,res) => {
+app.get('/createdatabase', (req,res) => {
     let sql = 'CREATE DATABASE nodemysql';
     db.query(sql,(err,result)=>{
         if(err)
@@ -28,7 +29,7 @@ db.connect((err)=> {
 });
 
 //create table
-app.get('/createblogtable', (req, res) => {
+app.get('/createtableblog', (req, res) => {
     let sql = 'CREATE TABLE blog(id int AUTO_INCREMENT, title VARCHAR(255), body VARCHAR(255), PRIMARY KEY(id) )';
     db.query(sql,(err,result)=> {
         if(err)
@@ -36,7 +37,7 @@ app.get('/createblogtable', (req, res) => {
             throw err;
         }
         console.log(result);
-        res.send('Blog table created');
+        res.send('Table Blog created');
     });
 });
 
@@ -50,7 +51,7 @@ app.get('/addblog1', (req, res)=> {
             throw err;
         }
         console.log(result);
-        res.send('blog 1 inserted successfully');
+        res.send('blog 1 added successfully');
     });
 });
 //add blog 2
@@ -63,11 +64,11 @@ app.get('/addblog2', (req, res)=> {
             throw err;
         }
         console.log(result);
-        res.send('blog 2 inserted successfully');
+        res.send('blog 2 added successfully');
     });
 });
 //select blog
-app.get('/selectblog', (req,res) => {
+app.get('/selectblogs', (req,res) => {
     let sql = 'SELECT * FROM blog';
     db.query(sql,(err,result)=>{
         if(err)
@@ -75,7 +76,7 @@ app.get('/selectblog', (req,res) => {
             throw err;
         }
         console.log(result);
-        res.send('Blog fetched successfully');
+        res.send('Blog selected successfully');
     })
 });
  //select single blog
