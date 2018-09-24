@@ -1,1 +1,1 @@
-Using mysql with node.js
+Using node.js with mysql database.
